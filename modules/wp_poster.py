@@ -43,9 +43,7 @@ def _finalize_rakuten_links(content: str) -> str:
     """
     if not content:
         return content
-
-    marker = "https://hb.afl.rakuten.co.jp/hgc/アフィリエイトID/"
-    if marker not in content:
+    if "アフィリエイトID" not in content:
         return content
 
     affiliate_id = os.getenv("RAKUTEN_AFFILIATE_ID", "").strip()
