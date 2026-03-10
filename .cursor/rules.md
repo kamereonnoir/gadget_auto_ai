@@ -4,6 +4,19 @@
 
 ---
 
+## Issue 駆動開発
+
+- **開発は GitHub Issue を起点にする**  
+  作業開始前に、どの Issue に対応するかを明確にする。
+- **修正前に `context_issue.md` を読む**  
+  `scripts/issue_context.py` で取得した現在の Issue 内容を確認してから修正する。
+- **Issue と関係ない修正は行わない**  
+  1 回の変更は 1 つの Issue に紐づけ、余計な変更を混ぜない。
+- **修正後は Issue に対応する commit message を使う**  
+  例: `fix: #12 楽天URLのプレースホルダ除去` / `feat: #15 Amazonリンク対応`。
+
+---
+
 ## 主要モジュールの役割
 
 | モジュール | 役割 |

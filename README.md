@@ -102,15 +102,19 @@ WP_STATUS=draft  # or publish
 1. **Issue 作成**  
    バグ報告は `.github/ISSUE_TEMPLATE/bug_report.md`、機能要望は `feature_request.md` のテンプレートを使って作成する。
 
-2. **Cursor で修正**  
-   `.cursor/rules.md` に沿って開発。URL は必ず sanitize を通し、WordPress 投稿前に最終チェックを行う。
+2. **issue_context.py 実行**  
+   `python scripts/issue_context.py` で最新のオープン Issue を取得し、ルートに `context_issue.md` を生成する。  
+   （オプション: `.env` に `GITHUB_TOKEN` を設定すると API 制限を緩和できる。`GITHUB_REPOSITORY=owner/repo` でリポジトリを指定可能。）
 
-3. **Commit / Push**  
-   小さな修正単位で commit し、`main` に push（またはブランチ作成後に push）。
+3. **Cursor が Issue を元に修正**  
+   `.cursor/rules.md` に沿って開発。修正前に `context_issue.md` を読み、Issue と関係ない変更は入れない。URL は必ず sanitize を通し、WordPress 投稿前に最終チェックを行う。
 
-4. **Pull Request / Review**  
+4. **Commit / Push**  
+   Issue 番号を含む commit message（例: `fix: #12 楽天URLのプレースホルダ除去`）で commit し、`main` に push（またはブランチ作成後に push）。
+
+5. **Pull Request / Review**  
    `.github/pull_request_template.md` に従って PR を作成し、レビューを行う。
 
-5. **GitHub Actions 確認**  
+6. **GitHub Actions 確認**  
    `.github/workflows/python-check.yml` が push / PR で実行され、Python 構文チェックが通ることを確認してからマージする。
 

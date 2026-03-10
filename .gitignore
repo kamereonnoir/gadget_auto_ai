@@ -9,6 +9,8 @@ venv/
 data/logs/
 data/articles/
 
+context_issue.md
+
 .DS_Store
 Thumbs.db
 
