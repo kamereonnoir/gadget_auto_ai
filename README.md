@@ -95,3 +95,22 @@ WP_STATUS=draft  # or publish
 
 その他、Discord 通知や投稿制御用のフラグなどは `.env.example` を参照してください。
 
+---
+
+### 開発フロー
+
+1. **Issue 作成**  
+   バグ報告は `.github/ISSUE_TEMPLATE/bug_report.md`、機能要望は `feature_request.md` のテンプレートを使って作成する。
+
+2. **Cursor で修正**  
+   `.cursor/rules.md` に沿って開発。URL は必ず sanitize を通し、WordPress 投稿前に最終チェックを行う。
+
+3. **Commit / Push**  
+   小さな修正単位で commit し、`main` に push（またはブランチ作成後に push）。
+
+4. **Pull Request / Review**  
+   `.github/pull_request_template.md` に従って PR を作成し、レビューを行う。
+
+5. **GitHub Actions 確認**  
+   `.github/workflows/python-check.yml` が push / PR で実行され、Python 構文チェックが通ることを確認してからマージする。
+

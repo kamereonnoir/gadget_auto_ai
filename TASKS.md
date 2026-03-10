@@ -4,7 +4,7 @@
 
 ---
 
-### 現在の優先タスク
+### 現在の優先タスク（上位3つ）
 
 - **楽天リンクの最終置換確認**
   - `rakuten_product_lookup.py` → `affiliate_builder.py` → `wp_poster.py` までのフローで、楽天アフィリエイトURLに `"アフィリエイトID"` プレースホルダが一切残らないことを再確認する。
@@ -22,6 +22,10 @@
     - 内部リンク構造（関連記事）の最適化
     を重点的にチューニングする。
 
+---
+
+### 近日対応したい改善
+
 - **product / versus 記事の再開準備**
   - いまは compare 記事の安定運用を優先しているため、product / versus 記事の WordPress 投稿が抑制されている箇所がある。
   - compare が安定したら、product / versus 記事についても:
@@ -29,10 +33,6 @@
     - 内部リンク
     - 購入リンク
     の整合性を取りつつ、運用に耐えうる形で再有効化する。
-
----
-
-### 近日対応したい改善
 
 - **キーワード生成・スコアリングのチューニング**
   - `keyword_generator.py` / `keyword_scorer.py` のプロンプトと閾値を見直し、収益性・検索意図の明確さをより重視したスコアリングロジックにする。
@@ -63,6 +63,13 @@
 ---
 
 ### 完了済みタスク（このガイド作成時点）
+
+- **開発運用基盤の整備**
+  - `.cursor/rules.md` でプロジェクトルールを明文化。
+  - `.github/ISSUE_TEMPLATE/` にバグ報告・機能要望テンプレートを追加。
+  - `.github/pull_request_template.md` で PR フォーマットを統一。
+  - `.github/workflows/python-check.yml` で push / PR 時に Python 構文チェックを実行。
+  - ChatGPT ↔ Cursor ↔ GitHub の連携で人間の中継作業を減らす土台を整備。
 
 - **Markdown → HTML 変換**
   - `modules/wp_poster.py` で `markdown.markdown()` による本文の HTML 変換を導入。
